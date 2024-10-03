@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:5103
+GET {{baseUrl}}/games
+
+###
+GET {{baseUrl}}/games/2
+
+###
+POST {{baseUrl}}/games
+Content-Type: application/json
+
+{
+  "name": "Minecraft",
+  "genre": "Kids and Family",
+  "price": 19.99,
+  "releaseDate": "2011-11-18"
+}
+
+###
+PUT {{baseUrl}}/games/5
+Content-Type: application/json
+
+{
+    "name": "Yakuza Kiwami 2",
+    "genre": "Bitemap",
+    "price": 29.99,
+    "releaseDate": "2015-12-25"
+}
+
+### 
+DELETE {{baseUrl}}/games/3
