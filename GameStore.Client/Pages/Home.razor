@@ -1,0 +1,61 @@
+﻿@page "/"
+@using GameStore.Client.Models
+
+<PageTitle>Game Catalog</PageTitle>
+
+<h1>Game Catalog</h1>
+
+<table>
+    <thead>
+        <th>№</th>
+        <th>Название</th>
+        <th>Жанр</th>
+        <th>Цена</th>
+        <th>Дата выхода</th>
+        <th></th>
+    </thead>
+    <tbody>
+        @foreach(var game in games)
+        {
+            <tr>
+                <td>@game.Id</td>
+                <td>@game.Name</td>
+                <td>@game.Genre</td>
+                <td>@game.Price</td>
+                <td>@game.ReleaseDate</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code
+{
+    private Game[] games = new[]
+    {
+        new Game()
+        {
+            Id = 1,
+            Name = "Yakuza 0",
+            Genre = "Bitemap",
+            Price = 29.99M,
+            ReleaseDate = new DateOnly(2015, 12, 25)
+        },
+        new Game()
+        {
+            Id = 2,
+            Name = "Final Fantasy XIV",
+            Genre = "Roleplaying",
+            Price = 59.99M,
+            ReleaseDate = new DateOnly(2010, 9, 30)
+        },
+        new Game()
+        {
+            Id = 3,
+            Name = "FIFA 23",
+            Genre = "Sports",
+            Price = 69.99M,
+            ReleaseDate = new DateOnly(2022, 6, 17)
+        }
+    };
+}
