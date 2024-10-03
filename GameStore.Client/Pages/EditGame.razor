@@ -2,6 +2,7 @@
 @page "/game/{id:int}"
 @using GameStore.Client.Models
 @inject NavigationManager NavigationManager
+@inject GameClient client
 
 <PageTitle>@title</PageTitle>
 <h1>Каталог игр</h1>
@@ -15,7 +16,7 @@ else
 {
     <div class="row">
         <div class="col-sm-4">
-            <EditForm Model="@game" OnValidSubmit="HandleSubmit">
+            <EditForm Model="@game" OnValidSubmit="HandleSubmitAsync">
                 <DataAnnotationsValidator />
                 <ValidationSummary />
                 <div class="mb-3">
@@ -57,50 +58,50 @@ else
 
     private string title = string.Empty;
 
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
         if (Id is not null)
         {
-            Game foundGame = GameClient.GetGame(Id.Value);
+            Game foundGame = await client.GetGameAsync(Id.Value);
             game = new()
-            {
-                Id = foundGame.Id,
-                Name = foundGame.Name,
-                Genre = foundGame.Genre,
-                Price = foundGame.Price,
-                ReleaseDate = foundGame.ReleaseDate
-            };
+                {
+                    Id = foundGame.Id,
+                    Name = foundGame.Name,
+                    Genre = foundGame.Genre,
+                    Price = foundGame.Price,
+                    ReleaseDate = foundGame.ReleaseDate
+                };
 
-            title = $"Изменение игры {game.Name}";    
+            title = $"Изменение игры {game.Name}";
         }
         else
         {
             game = new()
-            {
-                Name = string.Empty,
-                Genre = string.Empty,
-                ReleaseDate = DateOnly.FromDateTime(DateTime.UtcNow)
-            };
+                {
+                    Name = string.Empty,
+                    Genre = string.Empty,
+                    ReleaseDate = DateOnly.FromDateTime(DateTime.UtcNow)
+                };
 
             title = "Добавление игры";
         }
     }
 
-    private void HandleSubmit()
+    private async Task HandleSubmitAsync()
     {
         if (game!.Id == 0)
         {
-            GameClient.AddGame(game);
+            await client.AddGameAsync(game);
         }
         else
         {
-            GameClient.UpdateGame(game);
+            await client.UpdateGameAsync(game);
         }
         NavigationManager.NavigateTo("/");
     }
 
     private void Cancel()
     {
-        NavigationManager.NavigateTo("/"); 
+        NavigationManager.NavigateTo("/");
     }
 }
