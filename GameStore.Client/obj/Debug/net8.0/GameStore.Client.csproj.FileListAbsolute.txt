@@ -1028,3 +1028,4 @@ C:\Users\Kate\Desktop\GameStore\GameStore.Client\obj\Debug\net8.0\GameStore.Clie
 C:\Users\Kate\Desktop\GameStore\GameStore.Client\obj\Debug\net8.0\refint\GameStore.Client.dll
 C:\Users\Kate\Desktop\GameStore\GameStore.Client\obj\Debug\net8.0\GameStore.Client.pdb
 C:\Users\Kate\Desktop\GameStore\GameStore.Client\obj\Debug\net8.0\ref\GameStore.Client.dll
+C:\Users\Kate\Desktop\GameStore\GameStore.Client\obj\Debug\net8.0\GameStore.Client.sourcelink.json

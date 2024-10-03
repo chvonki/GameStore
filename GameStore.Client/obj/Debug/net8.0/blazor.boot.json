@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "GameStore.Client",
   "resources": {
-    "hash": "sha256-VDj7NjIJ+VllCnn0L16dse2qm/tVZA4BHeNCr68hpg0=",
+    "hash": "sha256-Q6QGbr5nWCL7YDEHkwdUl2yOUjOdYs8Tc/yoQPMfZ5Q=",
     "jsModuleNative": {
       "dotnet.native.8.0.1.g6262kuu2r.js": "sha256-SGOlISx+3G4kkvpC9Uq3qoPGsnjxGmW61QBev0lyI5U="
     },
@@ -208,10 +208,10 @@
       "mscorlib.wasm": "sha256-EpWTfh4m/hEcXRFYMCR9YeYHwdUJgcm1laBaxWfq2S4=",
       "netstandard.wasm": "sha256-2kH24/YfHmU3B4eYRyRmiwebYROM4+B9eDWKvMnUdP8=",
       "System.Private.CoreLib.wasm": "sha256-CsySKiP7HYY1pS8LTDE60EkqiX5oHb3WoEZHDNd1yK0=",
-      "GameStore.Client.wasm": "sha256-0ciILRaJvRuUiKzqFe8uq9vjd1OQSvF8b8uGppPhcqk="
+      "GameStore.Client.wasm": "sha256-VzX0HHfe9ZN/Qdc443jD1lwQ3IFFlwhal2Y+QykA5RU="
     },
     "pdb": {
-      "GameStore.Client.pdb": "sha256-xHCWqATTYWeb95of0hIPFRqZOMkqzDdN7irEXYquKTc="
+      "GameStore.Client.pdb": "sha256-6/mXxc38z7jrpVV6KE8C7fYm1W/XAF714l7/ZbsXSgs="
     }
   },
   "cacheBootResources": true,
