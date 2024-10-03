@@ -1,9 +1,16 @@
 ﻿@page "/"
 @using GameStore.Client.Models
+@inject NavigationManager NavigationManager
 
 <PageTitle>Game Catalog</PageTitle>
 
 <h1>Каталог игр</h1>
+
+<div class="row mb-4">
+    <div class="col-sm-6">
+        <button type="button" class="btn btn-primary" @onclick="CreateGame">Добавить игру</button>
+    </div>
+</div>
 
 @if (games is null)
 {
@@ -43,5 +50,10 @@ else
     protected override void OnInitialized()
     {
         games = GameClient.GetGames();
+    }
+
+    private void CreateGame()
+    {
+        NavigationManager.NavigateTo("/game");
     }
 }
