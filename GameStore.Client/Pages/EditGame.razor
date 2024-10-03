@@ -1,0 +1,38 @@
+﻿@page "/game"
+@using GameStore.Client.Models
+
+<PageTitle>Добавление новой игры</PageTitle>
+<h1>Каталог игр</h1>
+<h3>Новая игра</h3>
+
+<div class="row">
+    <div class="col-sm-4">
+        <EditForm Model="@game">
+            <div class="mb-3">
+                <label for="name" class="form-label">Название:</label>
+                <InputText id="name" @bind-Value="game.Name" class="form-control"></InputText>
+            </div>
+            <div class="mb-3">
+                <label for="genre" class="form-label">Жанр:</label>
+                <InputText id="genre" @bind-Value="game.Genre" class="form-control"></InputText>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Цена:</label>
+                <InputNumber id="price" @bind-Value="game.Price" class="form-control"></InputNumber>
+            </div>
+            <div class="mb-3">
+                <label for="releaseDate" class="form-label">Дата выхода:</label>
+                <InputDate id="releaseDate" @bind-Value="game.ReleaseDate" class="form-control"></InputDate>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private Game game = new()
+    {
+        Name = string.Empty,
+        Genre = string.Empty,
+        ReleaseDate = DateOnly.FromDateTime(DateTime.UtcNow)
+    };
+}
