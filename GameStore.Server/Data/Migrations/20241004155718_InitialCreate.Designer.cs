@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameStore.Server.Data.Migrations
 {
     [DbContext(typeof(GameStoreContext))]
-    [Migration("20241004154902_InitialCreate")]
+    [Migration("20241004155718_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -44,6 +44,7 @@ namespace GameStore.Server.Data.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateOnly>("ReleaseDate")
