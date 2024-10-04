@@ -14,7 +14,7 @@ namespace GameStore.Server.Models
         [StringLength(30, ErrorMessage = "Слишком длинное название жанра")]
         public string? Genre { get; set; }
 
-        [Range(1, 150, ErrorMessage = "Цена должна быть от 1 до 150")]
+        [Range(0.0, 150.0, ErrorMessage = "Цена должна быть от 0 до 150")]
         public decimal Price { get; set; }
         public DateOnly ReleaseDate { get; set; }
     }

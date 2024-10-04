@@ -11,6 +11,10 @@
     <div class="col-sm-6">
         <button type="button" class="btn btn-primary" @onclick="CreateGame">Добавить игру</button>
     </div>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Поиск по названию или жанру" @bind="searchString"
+            @bind:event="oninput" @onkeyup="FetchGameAsync" />
+    </div>
 </div>
 
 @if (games is null)
@@ -28,7 +32,7 @@ else
             <th>№</th>
             <th>Название</th>
             <th>Жанр</th>
-            <th>Цена</th>
+            <th>Цена $</th>
             <th>Дата выхода</th>
             <th></th>
         </thead>
@@ -61,9 +65,10 @@ else
 {
     private Game[]? games;
     private Game? currentGame;
+    private string? searchString;
     protected override async Task OnInitializedAsync()
     {
-        games = await client.GetGamesAsync();
+        await FetchGameAsync();
     }
 
     private void CreateGame()
@@ -81,8 +86,13 @@ else
         if (accepted)
         {
             await client.DeleteGameAsync(currentGame!.Id);
-            games = await client.GetGamesAsync();
+            await FetchGameAsync();
         }
+    }
+
+    private async Task FetchGameAsync()
+    {
+        games = await client.GetGamesAsync(searchString);
     }
 
 }
